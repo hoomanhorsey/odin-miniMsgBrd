@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <a href="/new">Create a new message</a>
+
+    <ul>
+      <% messages.map((message, index) => { %>
+      <div>
+        <!-- <li>Message: <%= message.text %></li> -->
+        <li>Sender: <%= message.user %></li>
+        <li>Date: <%= message.added %></li>
+        <a href="/message/<%= index %>">Message text</a>
+      </div>
+      <% }) %>
+    </ul>
+  </body>
+</html>
