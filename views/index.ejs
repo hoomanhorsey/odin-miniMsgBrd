@@ -14,9 +14,9 @@
       <% messages.map((message, index) => { %>
       <div>
         <!-- <li>Message: <%= message.text %></li> -->
-        <li>Sender: <%= message.user %></li>
+        <li>Sender: <%= message.username %></li>
         <li>Date: <%= message.added %></li>
-        <a href="/message/<%= index %>">Message text</a>
+        <a href="/message/<%= message.id %>">Click to see message text</a>
       </div>
       <% }) %>
     </ul>

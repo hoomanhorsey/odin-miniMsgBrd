@@ -1,0 +1,24 @@
+
+In our previous Mini Message Board project, we implemented ephemeral messages using an array i.e. the messages would reset when server restarted. We want data persistence. Go back to this project and implement it with a PostgreSQL db and pg.
+
+- Set up PostGres and PG?
+
+
+
+
+Deploy a new db on a hosting service you choose, and obtain its connection information.
+- Find hosting solution? 
+- Get connection info
+
+Create a messages table, populate it with data if you wish. This should be done via a script.
+- Create messages table - is this done via a populate script?
+
+
+Add the necessary environment variables, create a pool, and implement the required db functions.
+- env login variables?
+- require pool for queries.
+
+
+While you’re at it, add appropriate server-side validation for user input as well.
+
+- create controllers to house the controller functions

@@ -1,41 +1,18 @@
 const { Router } = require("express");
-
-const messages = [
-  {
-    text: "Do you Poo?",
-    user: "Ben",
-    added: new Date(),
-  },
-  {
-    text: "How do you do? I am Poo",
-    user: "Andrew",
-    added: new Date(),
-  },
-];
-
 const router = Router();
 
-// indexRouter.get("/", (req, res) => res.send("index"));
+const controller = require("../controllers/controllers");
 
-router.get("/", (req, res) =>
-  res.render("index", { title: "Mini Message Board", messages: messages })
-);
+router.get("/", controller.getMessages);
+router.get("/message/:index", controller.displayMessage);
 
-router.get("/new", (req, res) => res.render("form"));
+// Create controller file for /new, get and post
 
-router.post("/new", (req, res) => {
-  messages.push({
-    text: req.body.messageText,
-    user: req.body.messageUser,
-    added: new Date(),
-  });
-  res.redirect("/");
-});
+router.get("/new", controller.renderNewForm);
 
-router.get("/message/:index", (req, res) => {
-  const index = parseInt(req.params.index, 10); // extracts the number from the URL
+router.post("/new", controller.submitNewMessage);
 
-  res.render("message", { message: messages[index] });
-});
+// New to separate the logic here into contrlloer and query
+router.post("/new", controller.submitNewMessage);
 
 module.exports = router;

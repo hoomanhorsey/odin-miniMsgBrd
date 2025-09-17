@@ -1,3 +1,7 @@
+// Import environmental variables
+
+require("dotenv").config();
+
 // Import dependencies
 const express = require("express");
 const path = require("node:path");
@@ -7,7 +11,6 @@ const app = express();
 
 // Routers required
 const indexRouter = require("./routes/indexRouter");
-// const newRouter = require("./routes/newRouter");
 
 // Configure settings
 app.set("views", path.join(__dirname, "views"));
@@ -27,5 +30,7 @@ app.listen(PORT, (error) => {
   if (error) {
     throw error;
   }
-  console.log("Another basic express app, will probably refine it later");
+  console.log(
+    "Note, app calls supabase hosted postgres db.  Does NOT work over public wifi as ports to connec to supabase do not work.  Adjust .env file to point to local db if using publically."
+  );
 });
