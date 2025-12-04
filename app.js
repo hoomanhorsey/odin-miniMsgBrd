@@ -20,8 +20,6 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
-app.use("/new", indexRouter);
-app.use("/message", indexRouter);
 
 // Setup port
 const PORT = process.env.PORT || 3000;

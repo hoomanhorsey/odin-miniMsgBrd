@@ -2,12 +2,10 @@ const db = require("../db/queries");
 
 async function getMessages(req, res) {
   const messages = await db.getAllMessages();
-  // console.table(messages);
   res.render("index", {
     title: "Mini Message Board",
     messages: messages,
   });
-  // res.send("Not complte");
 }
 
 async function displayMessage(req, res) {
